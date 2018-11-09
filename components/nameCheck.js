@@ -40,16 +40,16 @@ export default class NameCheck extends Component {
       .then(res => {
         console.log('good=',res)
         this.setState({ result: true });
-        this.props.reg(true);
-        /*
+        //this.props.reg(true);
+        
         Router.push({
-          pathname: '/about',
+          pathname: '/chat',
           query: { name: 'Zeit' }
-        })*/
+        })
       })
       .catch(err => {
         console.log('bady',err);
-        this.props.reg(false);
+        //this.props.reg(false);
         this.setState({ result: false })
       })
       .then(w => {

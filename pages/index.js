@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import NameCheck from '../components/nameCheck';
+//import Chat from '../components/chat';
 import Layout from '../components/MyLayout.js';
 import Header from '../components/Header.js';
 import About from './about';
@@ -27,6 +28,15 @@ class ChatOne extends Component {
     subscribe: false,
     subscribed: false,
     ready: false,
+  }
+  componentDidUpdate() {
+    localStorage.setItem('_refresh', JSON.stringify(this.state))
+  }
+  componentDidMount() {
+    const data = localStorage.getItem('_refresh')
+    if (data) {
+      this.setState(JSON.parse(data));
+    }
   }
 
   subscribe = () => {
@@ -102,10 +112,11 @@ class ChatOne extends Component {
     return (
       <div>
         <Layout>
-          <Header />
+         {/* <Header />*/}
         </Layout>
         <Layout>
-          {!this.state.ready ? <NameCheck reg={v => this.registerDone(v)}/> : <About/>}
+          {/*!this.state.ready ? <NameCheck reg={v => this.registerDone(v)}/> : <Chat/>*/}
+          <NameCheck/>
         </Layout>
       </div>
     )

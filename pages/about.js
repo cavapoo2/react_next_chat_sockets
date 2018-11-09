@@ -1,10 +1,10 @@
 import Layout from '../components/MyLayout.js';
-import Header from '../components/Header.js';
+import Header2 from '../components/Header2.js';
 
 export default () => (
 	<div>
 		<Layout>
-			<Header />
+			<Header2 />
 		</Layout>
 		<Layout>
             <h2>A simple chat client</h2>
