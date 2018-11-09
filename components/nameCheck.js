@@ -44,7 +44,7 @@ export default class NameCheck extends Component {
         
         Router.push({
           pathname: '/chat',
-          query: { name: 'Zeit' }
+          query: { name: this.state.value }
         })
       })
       .catch(err => {

@@ -10,10 +10,11 @@ import About from './about';
 class ChatOne extends Component {
   // fetch old messages data from the server
   /*
-  static async getInitialProps ({ req }) {
-    const response = await fetch('http://localhost:3000/messages/chat1')
-    const messages = await response.json()
-    return { messages }
+  static async getInitialProps ({ req,query }) {
+  //  const response = await fetch('http://localhost:3000/messages/chat1')
+    //const messages = await response.json()
+    //return { messages }
+    console.log(query)
   }*/
 
   static defaultProps = {
