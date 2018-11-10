@@ -53,23 +53,18 @@ export default class Chat extends Component {
   handleClear(event) {
   }
   componentDidUpdate() {
-    console.log('didupdate');
-    //    console.log(this.state);
     localStorage.setItem('_refresh', JSON.stringify(this.state));
   }
   componentDidMount() {
-    console.log('didmount');
-    //window.localStorage.removeItem('name');
     const data = localStorage.getItem('_refresh');
     if (data) {
-      console.log('dataR=', data);
       let clone = JSON.parse(data);
       if (this.state.name !== "") {
         clone.name = this.state.name;
       }
       this.setState(clone);
     }
-    }
+  }
   callPost() {
     axios.post('/decode', {
       data: this.state.data

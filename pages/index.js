@@ -6,6 +6,11 @@ import NameCheck from '../components/nameCheck';
 import Layout from '../components/MyLayout.js';
 import Header from '../components/Header.js';
 import About from './about';
+import styles from '../styles/style.scss';
+import Login from '../components/login';
+import LandingPage from '../components/landingPage';
+import ChatPanel from './chatPanel';
+
 
 class ChatOne extends Component {
   // fetch old messages data from the server
@@ -112,14 +117,10 @@ class ChatOne extends Component {
   render() {
     return (
       <div>
-        <Layout>
-         {/* <Header />*/}
-        </Layout>
-        <Layout>
-          {/*!this.state.ready ? <NameCheck reg={v => this.registerDone(v)}/> : <Chat/>*/}
-          <NameCheck/>
-        </Layout>
-      </div>
+      
+            <LandingPage/>
+            {/*<style jsx global>{styles}</style>*/}
+          </div>
     )
   }
 }

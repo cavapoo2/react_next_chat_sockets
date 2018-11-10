@@ -7,10 +7,14 @@
     "isomorphic-unfetch": "^2.0.0",
     "morgan": "^1.9.1",
     "next": "7.0.2",
-    "react": "16.6.0",
-    "react-dom": "16.6.0",
+    "react": "16.6.1",
+    "react-dom": "16.6.1",
     "socket.io": "^1.7.3",
     "socket.io-client": "^1.7.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "sass-loader": "7.1.0"
   },
   "scripts": {
     "dev": "node server.js",
