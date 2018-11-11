@@ -11,6 +11,8 @@ class LandingPage extends Component {
             name:'',
             pass:'',
             email:'',
+            validPass:false,
+            validName:false,
         };
         this.handleToggle = this.handleToggle.bind(this);
         this.debugHandler = this.debugHandler.bind(this);
@@ -26,6 +28,32 @@ class LandingPage extends Component {
         this.setState({register:!this.state.register})
        // this.forceUpdate();
     }
+    isValid(str){
+      return /^\w+$/.test(str);
+    }
+    validatePass(pass) {
+
+      if (pass > 7 && isValid(pass) === true){
+        this.setState({validPass:true});
+        return true;
+      }else {
+        this.setState({validPass:false});
+        return false;
+      }
+
+    }
+    validateName(name) {
+      
+      //checkname should only be letters and numbers only
+      if (isValid(name) === true && name > 0){
+        this.setState({validName:true});
+        return true;
+      }else {
+        this.setState({validName:false});
+        return false;
+      }
+      //checkpassword - should be at least 8 characters long
+    }
     handleLogin(event){
       event.preventDefault();
 
@@ -36,13 +64,16 @@ class LandingPage extends Component {
     handleChangeReg(event){
       console.log('etv=',event.target.value);
       console.log('etn=',event.target.name);
-      let name = event.target.name;
-      this.setState({name:event.target.value})
+      let name = event.target.name + "";
+      this.validateReg(name);
+      this.setState({[name]: event.target.value})
 
     }
     handleChangeLogin(event){
       console.log('etv=',event.target.value);
       console.log('etn=',event.target.name);
+      let name = event.target.name;
+      this.setState({[name]:event.target.value})
 
 
     }
@@ -60,15 +91,15 @@ class LandingPage extends Component {
                     {!this.state.register ?
                         <form onSubmit={this.handleRegister} className="register-form">
                             <input name="name" onChange={e => this.handleChangeReg(e)} value={this.state.name} type="text" placeholder="name" />
-                            <input name="email" onChange={e => this.handleChangeReg(e)} value={this.state.email} type="text" placeholder="email address" />
+                            <input name="email" onChange={e => this.handleChangeReg(e)} value={this.state.email} type="email" placeholder="email address" />
                             <input name="pass" onChange={e => this.handleChangeReg(e)} value={this.state.pass} type="password" placeholder="password" />
-                            <button>create</button>
+                            <button disabled={!this.state.valid}>create</button>
                             <p className="message">Already registered? <a href='#' onClick={this.handleToggle}>Sign In</a></p>
                         </form> :
                         <form onSubmit={this.handleLogin} className="login-form">
                             <input name="name" onChange={e => this.handleChangeLogin(e)} value={this.state.name} type="text" placeholder="username" />
                             <input name="pass" onChange={e => this.handleChangeLogin(e)} value={this.state.pass} type="password" placeholder="password" />
-                            <button>login</button>
+                            <button disabled={!this.state.valid}>login</button>
                             <p className="message">Not registered? <a href='#' onClick={this.handleToggle}>Create an account</a></p>
                         </form>
                        }

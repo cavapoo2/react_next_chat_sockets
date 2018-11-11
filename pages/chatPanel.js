@@ -27,7 +27,7 @@ export default class ChatPanel extends Component {
                             <div className="header-icon">
                                 <i className="fa fa-qq"></i>
                             </div>
-                            <div className="header-title"><span>最咸的咸鱼</span></div>
+                            <div className="header-title"><span>Chat</span></div>
                             <div className="close-icon">+</div>
                         </div>
                         <div className="panel-body">
@@ -39,7 +39,7 @@ export default class ChatPanel extends Component {
                         </div>
                         <div className="panel-footer">
                             <input type="text" className="input-info" />
-                            <button className="submit-button">发送</button>
+                            <button className="submit-button">Send</button>
                         </div>
                     </div>
                 </div>
