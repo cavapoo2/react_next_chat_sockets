@@ -60,30 +60,38 @@ class LandingPage extends Component {
   checkWarnings() {
     if (this.state.validName !== true && this.state.validPass !== true) {
       this.setState({ warning: warningBoth });
-      return;
+      return false;
     } else if (this.state.validName !== true) {
       this.setState({ warning: warningName });
-      return;
+      return false;
     } else if (this.state.validPass !== true) {
       this.setState({ warning: warningPass });
-      return;
+      return false;
     } else {
       this.setState({ warning: '' });
     }
+    return true;
 
   }
   handleLogin(event) {
     event.preventDefault();
     console.log('In handleLogin');
-    this.checkWarnings()
+    let res = this.checkWarnings()
+    if (res !== true){
+      return;
+    }
     console.log('here here');
-
+    this.sendLogin();
 
   }
   handleRegister(event) {
     event.preventDefault();
     console.log('In handleRegister');
-    this.checkWarnings();
+    let res = this.checkWarnings();
+    if (res !== true){
+      return;
+    }
+    this.sendReg();
       console.log('here here');
 
   }
